@@ -7,11 +7,15 @@
 
     <string name="device_battery_charge" translatable="false">Устройство: заряжается</string>
     <string name="device_battery_discharge" translatable="false">Разряд батареи</string>
+    <string name="device_line" translatable="false">Сеть:</string>
+
 
     <string name="eco_on" translatable="false">Батарея в режиме энерго сбережения</string>
     <string name="eco_off" translatable="false">Батарея в режиме потребления</string>
 
     <string name="voltage_power" translatable="false">Сила тока: </string>
+
+    <string name="ip">Привет, вы можете подключиться введя ip адресс в браузер</string>
 
 
 

@@ -1,4 +1,4 @@
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
     <string name="app_name">Stat</string>
 
     <string name="html_battery" translatable="false">Battery charge: </string>
@@ -7,11 +7,14 @@
 
     <string name="device_battery_charge" translatable="false">Battery: charging</string>
     <string name="device_battery_discharge" translatable="false">Battery drain</string>
+    <string name="device_line" translatable="false">Mobile network:</string>
 
     <string name="eco_on" translatable="false">Power saving mode: ON</string>
     <string name="eco_off" translatable="false">Power saving mode: OFF</string>
 
     <string name="voltage_power" translatable="false">Current Strength: </string>
+
+    <string name="ip">Hi, you can connect by entering the ip address into the browser</string>
 
 
 

@@ -30,7 +30,7 @@ class ServerService : Service() {
             try {
                 webServer.start()
                 Log.d("WebServer", "Server started")
-                println(webServer.getIPAddress())
+
             } catch (e: IOException) {
                 Log.e("WebServer", "Failed to start the server", e)
             }

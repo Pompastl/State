@@ -3,6 +3,8 @@ package com.pompast.state.state.phoneState
 import android.annotation.SuppressLint
 import android.content.Context
 import android.telephony.TelephonyManager
+import com.pompast.state.R
+
 
 class Beeline(private val context: Context) {
 
@@ -11,7 +13,7 @@ class Beeline(private val context: Context) {
         val telephonyManager = context.getSystemService(Context.TELEPHONY_SERVICE) as TelephonyManager
 
         return when (telephonyManager.networkType) {
-            TelephonyManager.NETWORK_TYPE_UNKNOWN -> "Сеть: Unknown"
+            TelephonyManager.NETWORK_TYPE_UNKNOWN -> "${context.getString(R.string.device_line)} Unknown"
             TelephonyManager.NETWORK_TYPE_GPRS,
             TelephonyManager.NETWORK_TYPE_EDGE,
             TelephonyManager.NETWORK_TYPE_CDMA,
