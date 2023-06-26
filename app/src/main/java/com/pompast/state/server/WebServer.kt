@@ -1,12 +1,16 @@
 package com.pompast.state.server
 
 import android.annotation.SuppressLint
+import android.content.Context
+import com.pompast.state.R
 import fi.iki.elonen.NanoHTTPD
 import java.net.NetworkInterface
 import java.text.SimpleDateFormat
 import java.util.*
 
-class WebServer : NanoHTTPD(8080) {
+class WebServer(private val  context: Context) : NanoHTTPD(8080) {
+
+
 
     lateinit var batteryPercent: String
     lateinit var batteryStatus: String
@@ -24,14 +28,11 @@ class WebServer : NanoHTTPD(8080) {
     @SuppressLint("SimpleDateFormat")
     override fun serve(session: IHTTPSession): Response {
         val dateFormat = SimpleDateFormat("HH:mm:ss")
-
-
-
         return newFixedLengthResponse(
             "<body style=\"background-color: rgb(45, 43, 46);\">" +
 
 
-                    "<p style=\"font-family: Arial; font-size: 100;  color: white;\" >На момент: ${
+                    "<p style=\"font-family: Arial; font-size: 100;  color: white;\" >${
                         dateFormat.format(
                             currentTime
                         )
@@ -39,13 +40,13 @@ class WebServer : NanoHTTPD(8080) {
 
                     "<b style=\"color: white; font-family: Arial; font-size: 50;\">" +
 
-                        "<p>Заряд аккумулятора: $batteryPercent</p>" +
+                        "<p>${context.getString(R.string.html_battery)} $batteryPercent</p>" +
                         "<p>$batteryStatus</p>" +
 
                         "<p>$chargingCurrent</p>" +
 
-                        "<p>Температура акб: $batteryTemp º</p>" +
-                        "<p>Температура сокета: $cpuTemp º</p>" +
+                        "<p>${context.getString(R.string.html_temp_battery)} $batteryTemp º</p>" +
+                        "<p>${context.getString(R.string.html_temp_core)} $cpuTemp º</p>" +
                         "<p>$eco</p>" +
 
                     "<p>$beelineType</p>" +

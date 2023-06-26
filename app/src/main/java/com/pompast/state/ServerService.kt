@@ -7,9 +7,9 @@ import android.os.Build
 import android.os.IBinder
 import android.util.Log
 import androidx.core.app.NotificationCompat
-import com.pompast.state.state.phoneState.Beeline
 import com.pompast.state.server.WebServer
 import com.pompast.state.state.phoneState.Battery
+import com.pompast.state.state.phoneState.Beeline
 import com.pompast.state.state.phoneState.Temper
 import java.io.IOException
 import java.util.*
@@ -17,7 +17,7 @@ import kotlin.concurrent.thread
 
 
 class ServerService : Service() {
-    private val webServer = WebServer()
+    private val webServer = WebServer(this)
 
     override fun onBind(intent: Intent): IBinder? {
         return null
@@ -62,6 +62,7 @@ class ServerService : Service() {
         val beeline = Beeline(this)
         webServer.beelineType = beeline.type()
         webServer.currentTime = Date()
+
     }
 
     override fun onDestroy() {

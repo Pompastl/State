@@ -1,3 +1,18 @@
 <resources>
     <string name="app_name">Stat</string>
+
+    <string name="html_battery" translatable="false">Battery charge: </string>
+    <string name="html_temp_battery" translatable="false">Battery temperature: </string>
+    <string name="html_temp_core" translatable="false">Core temperature: </string>
+
+    <string name="device_battery_charge" translatable="false">Battery: charging</string>
+    <string name="device_battery_discharge" translatable="false">Battery drain</string>
+
+    <string name="eco_on" translatable="false">Power saving mode: ON</string>
+    <string name="eco_off" translatable="false">Power saving mode: OFF</string>
+
+    <string name="voltage_power" translatable="false">Current Strength: </string>
+
+
+
 </resources>
