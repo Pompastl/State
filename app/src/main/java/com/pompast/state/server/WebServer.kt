@@ -3,6 +3,9 @@ package com.pompast.state.server
 import android.annotation.SuppressLint
 import android.content.Context
 import com.pompast.state.R
+import com.pompast.state.state.phoneState.Battery
+import com.pompast.state.state.phoneState.Beeline
+import com.pompast.state.state.phoneState.Temper
 import fi.iki.elonen.NanoHTTPD
 import java.net.NetworkInterface
 import java.text.SimpleDateFormat
@@ -12,22 +15,23 @@ class WebServer(private val  context: Context) : NanoHTTPD(8080) {
 
 
 
-    lateinit var batteryPercent: String
-    lateinit var batteryStatus: String
-    lateinit var beelineType: String
-    lateinit var cpuTemp: String
-    lateinit var eco: String
-    lateinit var chargingCurrent: String
+    private lateinit var batteryPercent: String
+    private lateinit var batteryStatus: String
+    private lateinit var beelineType: String
+    private lateinit var cpuTemp: String
+    private lateinit var eco: String
+    private lateinit var chargingCurrent: String
 
 
 
-    lateinit var batteryTemp: String
-    lateinit var currentTime: Date
-
+    private lateinit var batteryTemp: String
+    private lateinit var currentTime: Date
 
     @SuppressLint("SimpleDateFormat")
     override fun serve(session: IHTTPSession): Response {
         val dateFormat = SimpleDateFormat("HH:mm:ss")
+        upgrade()
+
         return newFixedLengthResponse(
             "<body style=\"background-color: rgb(45, 43, 46);\">" +
 
@@ -74,5 +78,21 @@ class WebServer(private val  context: Context) : NanoHTTPD(8080) {
         return ""
     }
 
+    private fun upgrade() {
+        val battery = Battery(context)
+        batteryPercent = battery.level()
+        batteryStatus = battery.isCharging()
+        eco = battery.ecoType()
+        chargingCurrent = battery.chargingCurrent()
+
+        val temp = Temper(context)
+        batteryTemp = temp.battery().toString()
+        cpuTemp = temp.cpu().toString()
+
+        val beeline = Beeline(context)
+        beelineType = beeline.type()
+        currentTime = Date()
+
+    }
 
 }

@@ -9,7 +9,6 @@ class NotifyActivity : BroadcastReceiver() {
 
     override fun onReceive(context: Context, intent: Intent) {
         if (intent.action == "com.pompast.state.STOP_SERVICE") {
-            // Получение ссылки на службу и остановка службы
             val serviceIntent = Intent(context, ServerService::class.java)
             context.stopService(serviceIntent)
         }

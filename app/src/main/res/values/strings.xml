@@ -1,4 +1,4 @@
-<resources xmlns:tools="http://schemas.android.com/tools">
+<resources>
     <string name="app_name">Stat</string>
 
     <string name="html_battery" translatable="false">Battery charge: </string>
@@ -16,6 +16,6 @@
 
     <string name="ip">Hi, you can connect by entering the ip address into the browser</string>
 
-
+    <string name="foreground_notification">The service runs in the background</string>
 
 </resources>

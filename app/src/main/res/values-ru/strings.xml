@@ -16,6 +16,7 @@
     <string name="voltage_power" translatable="false">Сила тока: </string>
 
     <string name="ip">Привет, вы можете подключиться введя ip адресс в браузер</string>
+    <string name="foreground_notification">Сервис работает в фоновом режиме</string>
 
 
 
