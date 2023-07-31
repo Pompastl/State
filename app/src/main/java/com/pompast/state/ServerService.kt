@@ -67,7 +67,7 @@ class ServerService : Service() {
         val notificationBuilder = NotificationCompat.Builder(this, "CHANNEL_ID")
             .setContentTitle("Server Service")
             .setContentText(getString(R.string.foreground_notification))
-            .setSmallIcon(R.drawable.icon)
+            .setSmallIcon(R.drawable.cloud)
 
 
         val stopIntent = Intent(this, NotifyActivity::class.java).apply {
@@ -81,7 +81,7 @@ class ServerService : Service() {
         )
 
         notificationBuilder.addAction(
-            R.drawable.icon,
+            R.drawable.close,
             "Stop Service",
             stopPendingIntent
         )

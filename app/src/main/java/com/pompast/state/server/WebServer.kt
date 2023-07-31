@@ -8,7 +8,6 @@ import com.pompast.state.state.phoneState.Beeline
 import com.pompast.state.state.phoneState.Temper
 import fi.iki.elonen.NanoHTTPD
 import java.net.NetworkInterface
-import java.text.SimpleDateFormat
 import java.util.*
 
 class WebServer(private val  context: Context) : NanoHTTPD(8080) {
@@ -29,18 +28,10 @@ class WebServer(private val  context: Context) : NanoHTTPD(8080) {
 
     @SuppressLint("SimpleDateFormat")
     override fun serve(session: IHTTPSession): Response {
-        val dateFormat = SimpleDateFormat("HH:mm:ss")
         upgrade()
 
         return newFixedLengthResponse(
             "<body style=\"background-color: rgb(45, 43, 46);\">" +
-
-
-                    "<p style=\"font-family: Arial; font-size: 100;  color: white;\" >${
-                        dateFormat.format(
-                            currentTime
-                        )
-                    }</p>" +
 
                     "<b style=\"color: white; font-family: Arial; font-size: 50;\">" +
 
